@@ -10,3 +10,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .active{
   border: 1px solid white;
 }
+
+.container-spinner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.sport{
+  background: lightblue !important;
+}
+
+.life{
+  background: lightgreen !important;
+}
+
+.style{
+  background: lightsalmon !important;
+}
+
+mat-chip.mat-chip.mat-primary.mat-standard-chip {
+  min-height: 1rem;
+  padding: 9px;
+}
