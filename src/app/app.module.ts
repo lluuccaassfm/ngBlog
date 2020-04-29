@@ -9,10 +9,15 @@ import { PostComponent } from './components/posts/post/post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ToolbarComponent } from "./shared/components/toolbar/toolbar.component";
-import {AngularFireModule} from "@angular/fire";
-import {environment} from "../environments/environment";
-import {AngularFireStorageModule} from "@angular/fire/storage";
-import {AngularFirestoreModule} from "@angular/fire/firestore";
+
+/* Firebase */
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+import { environment } from "../environments/environment";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,10 +34,12 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule,
   ],
   providers: [
-    // { provide: , useValue: 'gs://ngblob.appspot.com'}
+    // { provide: StorageBucket, useValue: 'gs://ngblob.appspot.com'}
   ],
   bootstrap: [AppComponent]
 })
