@@ -8,6 +8,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatChipsModule} from "@angular/material/chips";
 
 const myModule = [
   MatFormFieldModule,
@@ -17,7 +20,10 @@ const myModule = [
   MatIconModule,
   MatSidenavModule,
   MatListModule,
-  MatButtonModule
+  MatButtonModule,
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatChipsModule
 ];
 
 @NgModule({

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from "../../posts/post.service";
+import { PostI } from "../../../shared/models/post.interface";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -7,41 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public posts: {
-    id: string;
-    titlePost: string;
-    contentPost: string;
-    imagePost: string
-  }[] = [
-    {
-      id: '1',
-      titlePost: 'Post One',
-      contentPost: 'Conteúdo 1',
-      imagePost: 'https://i.picsum.photos/id/237/200/300.jpg'
-    },
-    {
-      id: '2',
-      titlePost: 'Post Two',
-      contentPost: 'Conteúdo 2',
-      imagePost: 'https://i.picsum.photos/id/38/200/300.jpg'
-    },
-    {
-      id: '3',
-      titlePost: 'Post Three',
-      contentPost: 'Conteúdo 2',
-      imagePost: 'https://i.picsum.photos/id/38/200/300.jpg'
-    },
-    {
-      id: '4',
-      titlePost: 'Post Four',
-      contentPost: 'Conteúdo 2',
-      imagePost: 'https://i.picsum.photos/id/237/200/300.jpg'
-    },
-  ]
+  public posts$: Observable<PostI[]>;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
+    // this.postService.getAllPosts().subscribe(res => console.log('POSTS', res));
+    this.posts$ = this.postService.getAllPosts();
   }
 
 }
