@@ -1,19 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PostComponent } from './components/posts/post/post.component';
+import {ListPostsComponent} from "./components/pages/posts/list-posts/list-posts.component";
+import {AboutComponent} from "./components/pages/about/about.component";
+import {AdminComponent} from "./components/admin/admin.component";
+import {LoginComponent} from "./components/pages/login/login.component";
+import {NotFoundComponent} from "./components/pages/not-found/not-found.component";
+import {PostComponent} from "./components/pages/posts/post/post.component";
+import {NewPostComponent} from "./components/pages/posts/new-post/new-post.component";
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () =>
-      import('./components/pages/home/home.module').then(m => m.HomeModule)
+  { path: '', redirectTo: 'posts', pathMatch: 'full' },
+
+  { path: 'posts',
+    children: [
+      { path: '', component: ListPostsComponent, pathMatch: 'full' },
+      { path: 'new', component: NewPostComponent },
+      { path: ':id', component: PostComponent },
+    ]
   },
-  { path: 'post/:id', component: PostComponent},
-  { path: 'about', loadChildren: () =>
-      import('./components/pages/about/about.module').then(m => m.AboutModule)
-  },
-  { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },
-  { path: 'login', loadChildren: () => import('./components/auth/login/login.module').then(m => m.LoginModule) }
+
+  { path: 'about', component: AboutComponent },
+
+  { path: 'admin', component: AdminComponent },
+
+  { path: 'login', component: LoginComponent },
+
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

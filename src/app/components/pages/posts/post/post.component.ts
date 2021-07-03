@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {PostService} from "../post.service";
+import {PostsService} from "../posts.service";
 import {Observable} from "rxjs";
-import {PostI} from "../../../shared/models/post.interface";
+import {PostI} from "../../../../shared/models/post.interface";
 
 @Component({
   selector: 'app-post',
@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private postService: PostService
+    private postService: PostsService
   ) { }
 
   ngOnInit(): void {

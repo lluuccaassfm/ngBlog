@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
-import {PostI} from "../../shared/models/post.interface";
+import {PostI} from "../../../shared/models/post.interface";
 import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
+export class PostsService {
 
   constructor(
     private afs: AngularFirestore
